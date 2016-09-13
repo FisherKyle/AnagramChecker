@@ -8,86 +8,86 @@
         function test_passOneLetter()
         {
             //Arrange
-            $inputOne = "a";
-            $inputTwo = "a";
+            $input_one = "a";
+            $input_two = "a";
             $test_AnagramChecker = new AnagramChecker;
 
             //Act
-            $result = $test_AnagramChecker->generateAnagramResult($inputOne, $inputTwo);
+            $result = $test_AnagramChecker->generateAnagramResult($input_one, $input_two);
 
             //Assert
-            $this->assertEquals("Your word is an anagram!", $result);
+            $this->assertEquals(true, $result);
         }
 
         function test_failOneLetter()
         {
             //Arrange
-            $inputOne = "a";
-            $inputTwo = "b";
+            $input_one = "a";
+            $input_two = "b";
             $test_AnagramChecker = new AnagramChecker;
 
             //Act
-            $result = $test_AnagramChecker->generateAnagramResult($inputOne, $inputTwo);
+            $result = $test_AnagramChecker->generateAnagramResult($input_one, $input_two);
 
             //Assert
-            $this->assertEquals("Your word is not an anagram.", $result);
+            $this->assertEquals(false, $result);
         }
 
         function test_passMultipleLetters()
         {
             //Arrange
-            $inputOne = "fox";
-            $inputTwo = "oxf";
+            $input_one = "fox";
+            $input_two = "oxf";
             $test_AnagramChecker = new AnagramChecker;
 
             //Act
-            $result = $test_AnagramChecker->generateAnagramResult($inputOne, $inputTwo);
+            $result = $test_AnagramChecker->generateAnagramResult($input_one, $input_two);
 
             //Assert
-            $this->assertEquals("Your word is an anagram!", $result);
+            $this->assertEquals(true, $result);
         }
 
-        function test_passMultipleLetters()
+        function test_failMultipleLetters()
         {
             //Arrange
-            $inputOne = "fox";
-            $inputTwo = "dog";
+            $input_one = "fox";
+            $input_two = "dng";
             $test_AnagramChecker = new AnagramChecker;
 
             //Act
-            $result = $test_AnagramChecker->generateAnagramResult($inputOne, $inputTwo);
+            $result = $test_AnagramChecker->generateAnagramResult($input_one, $input_two);
 
             //Assert
-            $this->assertEquals("Your word is not an anagram.", $result);
+            $this->assertEquals(false, $result);
         }
 
         function test_checkIgnoreCase()
         {
             //Arrange
-            $inputOne = "Sad";
-            $inputTwo = "das";
+            $input_one = "Sad";
+            $input_two = "das";
             $test_AnagramChecker = new AnagramChecker;
 
             //Act
-            $result = $test_AnagramChecker->generateAnagramResult($inputOne, $inputTwo);
+            $result = $test_AnagramChecker->generateAnagramResult($input_one, $input_two);
 
             //Assert
-            $this->assertEquals("Your word is an anagram!", $result);
+            $this->assertEquals(true, $result);
 
         }
 
         function test_checkNotEmpty()
         {
             //Arrange
-            $inputOne = "";
-            $inputTwo = "";
+            $input_one = "";
+            $input_two = "";
             $test_AnagramChecker = new AnagramChecker;
 
             //Act
-            $result = $test_AnagramChecker->generateAnagramResult($inputOne, $inputTwo);
+            $result = $test_AnagramChecker->generateAnagramResult($input_one, $input_two);
 
             //Assert
-            $this->assertEquals("You must enter a word!", $result);
+            $this->assertEquals(true, $result);
 
         }
     }
